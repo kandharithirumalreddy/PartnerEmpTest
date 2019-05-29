@@ -53,7 +53,7 @@ namespace TestDKBSapis
                             "\"email\": \"ega@itsmcompany.net\"," +
                             "\"partner\": \"214\"," +
                             "\"mailGroup\": \"string\"," +
-                            "\"peSharePointId\": \"testSpecialCharacters5\"," +
+                            "\"peSharePointId\": \"testSpecialCharacters512\"," +
                             "\"createdOn\": \"2019-05-18T08:33:33.723Z\"," +
                             "\"createdBy\": \"System account\"," +
                             "\"lastModified\": \"2019-05-18T08:33:33.723Z\"," +
@@ -78,9 +78,10 @@ namespace TestDKBSapis
                             //request.Accept = "*/*";
                             //request.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
 
+                            Encoding utfencoding = new UTF8Encoding();
 
+                            byte[] byte2 = utfencoding.GetBytes(data);
 
-                            byte[] byte2 = encoding.GetBytes(data);
                             request.ContentLength = byte2.Length;
                             Stream newStream2 = request.GetRequestStream();
                             newStream2.Write(byte2, 0, byte2.Length);
